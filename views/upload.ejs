@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>上传图片</title>
+	<meta charset="utf-8">
+    <link type="text/css" href="/stylesheets/upload.css" rel="stylesheet" />
+    <script type="text/javascript" src="/javascripts/jquery-1.8.1.min.js"></script>
+    <script type="text/javascript" src="/javascripts/uploader/uploader.js"></script>
+    <script type="text/javascript" src="/javascripts/uploader/uploaderQueue.js"></script>
+    <script type="text/javascript" src="/javascripts/uploader/uploaderApp.js"></script>
+	<script type="text/javascript" src="/javascripts/page_upload.js"></script>
+</head>
+<body>
+    <div class="container" id='container'>
+        <div class="header">
+            <strong class="title_status" id="uploadDialogHeadlineStrong">请将文件拖曳至框内</strong>
+			<input type="text" id="searchinput" placeholder="请输入图片名..." />
+        </div>
+		<span class = "label">新上传的图片</span>
+        <div id="uploadItems">
+        </div>
+		<span class = "label">上传了的图片</span>
+		<div id="existedItems">
+			<% for(var i=0;i < files.length;i++){ %>
+				<div class="upload_item" id="<%=files[i].id %>"> 
+				<div class="imagewraper">
+				<img src="<%=files[i].src %>" class="viewimage">
+				</div>
+				<div class="imageinfo">
+				<div class="inline_mask" style="width: 279px;">
+				</div><div class="file_name" data-name="<%=files[i].img %>" data-key="<%=files[i].id %>"><%=files[i].img %>
+				</div>
+				<a class="cancle_upload" href="javascript:;" key="<%=files[i].id %>" title="取消"></a>
+				</div>
+				</div>
+			<%}%>
+		</div>
+    </div>
+	<input id="productid" type="hidden" value="<%=pid %>"/>
+	<input id="midPath" type="hidden" value="<%=midPath %>"/>
+</body>
+<script type="text/javascript">
+    var main=new uploaderApp.main('container','<%=pid %>');
+    main.init();
+</script>
+</html>
