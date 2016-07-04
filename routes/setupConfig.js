@@ -1,5 +1,4 @@
 ﻿module.exports.git = {
-    git_root: "D:\\ICW\\var\\",
     git_xw: "D:\\ICW\\var\\xw\\",
     git_tempConfig: "D:\\ICW\\var\\template",
     git_userName : "sscm",
